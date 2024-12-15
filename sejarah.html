@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HMIF</title>
+  <link href="bootstrap/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="FontAwesome/css/fontawesome.css">
+    <link rel="stylesheet" href="FontAwesome/css/brands.css">
+    <link rel="stylesheet" href="FontAwesome/css/solid.css">
+
+  <style>
+    /* Animasi Loading */
+    #loader {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 1000;
+      }
+
+      .logo-container {
+        position: relative;
+        width: 120px;
+        height: 120px;
+        border-radius: 50%;
+        background: conic-gradient(#090cc6 0%, #aba5a5 0%);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        animation: rotate 0.3s linear infinite;
+      }
+
+      .logo-container img {
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        z-index: 2;
+      }
+
+      .percentage {
+        font-size: 24px;
+        margin-top: 20px;
+        color: #333;
+      }
+
+      @keyframes rotate {
+        0% {
+          transform: rotate(0deg);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+
+      @keyframes fadeOut {
+        0% {
+          opacity: 1;
+        }
+        100% {
+          opacity: 0;
+          visibility: hidden;
+        }
+      }/*batas*/
+
+
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 20px;
+    }
+    h1 {
+      text-align: center;
+      color: #f1e7e7;
+      margin-bottom: 20px;
+    }
+    h2 {
+      font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif, sans-serif;
+      text-align: center;
+      color: #000000;
+      margin-bottom: 10px;
+    }
+    .container {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+    .tabel-wrapper {
+      flex: 1;
+      max-width: 60%;
+      background-color: #ffffff;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgb(0, 0, 0);
+      overflow: hidden;
+      transform: translateY(20px);
+      opacity: 0;
+      animation: fadeIn 2s ease-out forwards;
+    }
+    .tabel-wrapper:nth-child(1) {
+      animation-delay: 0.2s;
+    }
+    .tabel-wrapper:nth-child(2) {
+      animation-delay: 0.4s;
+    }
+    .tabel-wrapper:nth-child(3) {
+      animation-delay: 0.6s;
+    }
+    .tabel-wrapper:nth-child(4) {
+      animation-delay: 0.8s;
+    }
+    .tabel-wrapper:nth-child(5) {
+      animation-delay: 1s;
+    }
+    .table-header {
+      background-color: #000000;
+      color: rgb(255, 255, 255);
+      padding: 10px;
+      font-size: 18px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    
+    @keyframes fadeIn {
+      from {
+        transform: translateY(20px);
+        opacity: 0;
+      }
+      to {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+.nav-link {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .nav-link::before {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: -100%;
+      width: 100%;
+      height: 2px;
+      background-color: #000000;
+      transition: all 0.3s ease;
+    }
+
+    .nav-link:hover::before {
+      left: 0;
+      }
+      .marquee {
+            overflow: hidden;
+            white-space: nowrap;
+            animation: marquee 25s linear infinite;
+            border: 1px solid #ccc;
+        }
+
+        @keyframes marquee {
+            0%   { transform: translateX(100%); }
+            100% { transform: translateX(-100%); }
+        }
+        .section p {
+            font-size: 16px;
+            line-height: 1.6;
+            margin: 0;
+        }
+/* CSS VISI MISI */
+        .mission-container {
+            display: flex;
+            justify-content: space-between;
+            background-color: #e9ecef;
+            padding: 20px;
+            border-radius: 8px;
+        }
+        .mission-container2 {
+          display: flex;
+    justify-content: space-between; /* Hapus 'center' dari sini */
+    background-color: #007bff;
+    padding: 20px;
+    width: 80%;
+    border-radius: 8px;
+    margin: 0 auto; /* Tambahkan ini untuk memusatkan kontainer */
+        }
+/*Visi*/
+        .mission2 {
+            flex: 1;
+            margin: 0 10px;
+            text-align: center;
+        }
+        .mission2 p {
+            font-size: 14px;
+            line-height: 1.5;
+            color: #000000;
+        }
+
+        .mission2 i {
+            display: block;
+            font-size: 24px;
+            color: #000000;
+            margin-bottom: 10px;
+        }
+/*Misi*/
+        .mission {
+            flex: 1;
+            margin: 0 10px;
+            text-align: center;
+        } 
+
+        .mission p {
+            font-size: 14px;
+            line-height: 1.5;
+            color: #555;
+        }
+
+        .mission i {
+            display: block;
+            font-size: 24px;
+            color: #333;
+            margin-bottom: 10px;
+        }
+  /* css untuk sejarah */
+        .body1 {
+          font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f9f9f9;
+            flex-direction: column;
+        }
+
+        .timeline-title {
+            font-size: 24px;
+            font-weight: bold;
+            margin: 20px 0;
+            text-align: center;
+            width: 100%;
+        }
+
+        .timeline-container {
+            display: grid;
+            grid-template-columns: 1fr 4px 1fr;
+            align-items: center;
+            gap: 20px;
+            width: 80%;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .timeline-line {
+            background-color: blue;
+            width: 4px;
+            height: 100%;
+        }
+
+        .timeline-item {
+            background-color: white;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+        }
+.timeline-item.left {
+            text-align: right;
+        }
+
+        .timeline-item.right {
+            text-align: left;
+        }
+        
+</style>
+  </style>
+</head>
+<body>
+
+  <!-- Animasi Loading -->
+  <div id="loader">
+    <div class="logo-container" id="circle">
+      <img src="img/HIMA.jpeg" alt="Logo">
+    </div>
+    <div class="percentage" id="loading-percentage">0%</div>
+  </div>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const loader = document.getElementById("loader");
+      const percentage = document.getElementById("loading-percentage");
+      const circle = document.getElementById("circle");
+
+      let load = 0;
+
+      const interval = setInterval(() => {
+        load++;
+        percentage.textContent = `${load}%`;
+        circle.style.background = `conic-gradient(#4CAF50 ${load}%, #ccc ${load}%)`;
+
+        if (load >= 100) {
+          clearInterval(interval);
+          loader.style.animation = "fadeOut 1s ease-in-out forwards";
+
+          setTimeout(() => {
+            loader.style.display = "none";
+          }, 1000);
+        }
+      }, 30);
+    });
+  </script>
+
+  <nav class="p-3 navbar navbar-expand-sm bg-light navbar-light fixed-top">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">
+            <img src="img/HIMA.jpeg" alt="Avatar Logo" style="width:40px; height:40px;" class="rounded-circle"> HIMPUNAN MAHASISWA INFORMATIKA
+          </a> 
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+              <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                  <a class="nav-link active" href="index.html"><i class="fa-solid fa-house"></i> Home</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link"href="sejarah.html"><i class="fa-solid fa-briefcase"></i> Tentang</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="kepengurusan.html"><i class="fa-solid fa-user "></i> Divisi</a>
+                </li>
+            </div>
+            </div>
+    </nav>
+<br><br><br>
+  <div id="home" class="bg-light rounded text-center ">
+    <h2>TERBENTUKNYA</h2>
+    <h2>HIMPUNAN MAHASISWA INFORMATIKA</h2>
+  </div>
+<br>
+<body1>
+  <h3 class="timeline-title">Sejarah</h3>
+    <div class="timeline-container ">
+        <!-- Left Side Content -->
+        <div class="timeline-item left">
+            <p>Himpunan Mahasiswa Informatika merupakan sebuah wadah berekspresi dan berkembang serta sebagai pengaplikasian baik akademik maupun non-akademik bagi seluruh Mahasiswa Informatika. Himpunan Mahasiswa Program Studi Informatika atau yang lebih dikenal sebagai HMIF merupakan himpunan terbaru dari Fakultas Teknologi Informasi yang berdiri sejak tahun 2023, tepatnya pada hari Selasa, 4 Juli 2023.</p>
+        </div>
+
+        <!-- Timeline Line -->
+        <div class="timeline-line"></div>
+
+        <!-- Right Side Content -->
+        <div class="timeline-item right">
+            <p>Pada saat ini, himpunan sudah berjalan selama satu tahun kepengurusan dan telah berhasil melaksanakan berbagai program kerja yang mendukung pengembangan kompetensi serta kreativitas mahasiswa. Selama periode ini, HMIF telah menjadi katalisator dalam mempererat solidaritas antar mahasiswa dan berkontribusi aktif dalam berbagai kegiatan sosial maupun ilmiah di lingkungan kampus.</p>
+        </div>
+    </div>
+</body1>
+<br>
+
+      <div class="section mt-3">
+          <h2>VISI</h2>
+        <div class="mission-container2">
+        <div class="mission2">
+             <i class="fas fa-eye"></i>
+               <p>Visi dari HMIF adalah Menciptakan Himpunan
+                yang Mampu menjadi wadah untuk berekspresi dan 
+                berkembang, serta menampung aspirasi bagi anggotanya.</p>
+        </div>
+        </div>
+      </div>
+
+      <div class="section mt-3">
+          <h2>MISI</h2>
+      <div class="mission-container">
+          <div class="mission">
+            <i class="fa-solid fa-book-bookmark"></i>
+              <p>Mengembangkan riset dan pengembangan teknologi berbasis kecerdasan buatan, dan data science untuk menciptakan solusi digital yang mempermudah kehidupan manusia.</p>
+          </div>
+          <div class="mission">
+            <i class="fas fa-project-diagram"></i>
+              <p>Mendorong kolaborasi internasional dengan akademisi, industri, dan komunitas untuk menjembatani penelitian dan aplikasi nyata yang berdaya guna bagi masyarakat.</p>
+          </div>
+          <div class="mission">
+            <i class="fa-solid fa-computer"></i>
+              <p>Membangun lingkungan belajar yang interaktif, berdaya guna, dan selalu terkoneksi dengan perkembangan teknologi terbaru untuk menghasilkan talenta yang siap menghadapi revolusi digital.</p>
+          </div>
+      </div>
+  </div>
+
+  <section id="contact" class="py-5">
+    <div class="container-fruid text-center text-light">
+      <div class="row ">
+        <div class=" p-2 bg-light text-dark rounded">
+          <h4>KONTAK</h4>
+          <div class="text-center">
+          <a href="HMIF@gmail.com"><i class="fa-solid fa-envelope " style="color: #000000 ;  "></i>  EMAIL INFORMATIKA</a>
+          <br>
+          <a href="tel:+62 851 6000 1122"><i class="fa-solid fa-phone " style="color: #000000 ;  "></i>  TELEPON INFORMATIKA</a>
+          <br>
+            <a href="https://www.instagram.com/hmif_unand?igsh=MTU5a3RhZGc2djAydQ=="><i class="fa-brands fa-square-instagram" style="color: #000000 ; "></i> INSTAGRAM INFORMATIKA</a>
+          <br>
+          <br>
+          <a href="#" class="btn btn-secondary">swipe up</a>
+          <br><br>
+          <div class="map">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1994.6544582827132!2d100.4582916983948!3d-0.9155810000000012!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2fd4b7005565cf59%3A0x132eff90ee6427ac!2sGedung%20Kuliah%20E%20Universitas%20Andalas!5e0!3m2!1sid!2sid!4v1734065279661!5m2!1sid!2sid" width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+              </div>
+        </div>
+      </div>
+  </div>
+</div>
+</section>
+
+<footer class="bg-light text-dark text-center ">
+<p>© 2024_HMIF. <br> Designed and developed by HMIF</p>
+</footer>
+<div class="marquee">
+| Himpunan Mahasiswa Informatika | Selamat datang di website Himpunan Mahasiswa Informatika | HMIF | Selamat datang di website Himpunan Mahasiswa Informatika | Himpunan Mahasiswa Informatika | Selamat datang di website Himpunan Mahasiswa Informatika | HMIF | Selamat datang di website Himpunan Mahasiswa Informatika |
+</div>
+
+  <script src="bootstrap/bootstrap.min.css"></script>
+</body>
+</html>

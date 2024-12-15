@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HMIF</title>
+    <link href="bootstrap/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="FontAwesome/css/fontawesome.css">
+    <link rel="stylesheet" href="FontAwesome/css/brands.css">
+    <link rel="stylesheet" href="FontAwesome/css/solid.css">
+    <style>
+      /* Animasi Loading */
+      #loader {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 1000;
+      }
+
+      .logo-container {
+        position: relative;
+        width: 120px;
+        height: 120px;
+        border-radius: 50%;
+        background: conic-gradient(#090cc6 0%, #aba5a5 0%);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        animation: rotate 0.3s linear infinite;
+      }
+
+      .logo-container img {
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        z-index: 2;
+      }
+
+      .percentage {
+        font-size: 24px;
+        margin-top: 20px;
+        color: #333;
+      }
+
+      @keyframes rotate {
+        0% {
+          transform: rotate(0deg);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+
+      @keyframes fadeOut {
+        0% {
+          opacity: 1;
+        }
+        100% {
+          opacity: 0;
+          visibility: hidden;
+        }
+      }/*batas*/
+
+      h3 {
+      font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif, sans-serif;
+      text-align: center;
+      color: #000000;
+      margin-bottom: 10px;
+    }
+      .nav-link {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .nav-link::before {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: -100%;
+      width: 100%;
+      height: 2px;
+      background-color: #000000;
+      transition: all 0.3s ease;
+    }
+
+    .nav-link:hover::before {
+      left: 0;
+      }
+      .marquee {
+            overflow: hidden;
+            white-space: nowrap;
+            animation: marquee 25s linear infinite;
+            border: 1px solid #ccc;
+        }
+
+        @keyframes marquee {
+            0%   { transform: translateX(100%); }
+            100% { transform: translateX(-100%); }
+        }
+    </style>
+</head>
+<body>
+
+  <!-- Animasi Loading -->
+  <div id="loader">
+    <div class="logo-container" id="circle">
+      <img src="img/HIMA.jpeg" alt="Logo">
+    </div>
+    <div class="percentage" id="loading-percentage">0%</div>
+  </div>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const loader = document.getElementById("loader");
+      const percentage = document.getElementById("loading-percentage");
+      const circle = document.getElementById("circle");
+
+      let load = 0;
+
+      const interval = setInterval(() => {
+        load++;
+        percentage.textContent = `${load}%`;
+        circle.style.background = `conic-gradient(#4CAF50 ${load}%, #ccc ${load}%)`;
+
+        if (load >= 100) {
+          clearInterval(interval);
+          loader.style.animation = "fadeOut 1s ease-in-out forwards";
+
+          setTimeout(() => {
+            loader.style.display = "none";
+          }, 1000);
+        }
+      }, 30);
+    });
+  </script>
+
+
+    <nav class="p-3 navbar navbar-expand-sm bg-light navbar-light fixed-top">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">
+            <img src="img/HIMA.jpeg" alt="Avatar Logo" style="width:40px; height:40px;" class="rounded-circle"> HIMPUNAN MAHASISWA INFORMATIKA
+          </a> 
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+              <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                  <a class="nav-link active" href="index.html"><i class="fa-solid fa-house"></i> Home</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link"href="sejarah.html"><i class="fa-solid fa-briefcase"></i> Tentang</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="kepengurusan.html"><i class="fa-solid fa-user "></i> Divisi</a>
+                </li>
+              </ul>
+            </div>
+            </div>
+    </nav>
+    <br><br><br>
+    <section id="KEPENGURUSAN" class="py-2" style="background-color:aliceblue;">
+    <div class="container-fruid text-center ">
+          <div class="row">
+            <h3>SUSUNAN KEPENGURUSAN</h3>
+            <h3>HIMPUNAN MAHASISWA INFORMATIKA</h3>
+              <div class="col-md-4 ">
+                <div class="card mt-5">
+                      <img class="card-img-top mt-2 p-2 rounded " class="btn" data-bs-toggle="tooltip" title="SEKERTARIS" src="img/Sekre.jpg" alt="Card image">
+                      <div class="card-body">
+                      <h4 class="card-title text-primary">SEKERTARIS</h4>
+                      <h6 class="card-title">Himpunan Mahasiswa Informatika</h6>
+                      <p class="card-text"> Sekretaris HIMA Informatika adalah salah satu posisi penting
+                      dalam kepengurusan Himpunan Mahasiswa Informatika. Tugas utamanya adalah 
+                      membantu ketua dan wakil ketua dalam mengelola administrasi organisasi, 
+                      seperti membuat notulen rapat, mengarsipkan dokumen, dan mengkoordinasikan
+                      kegiatan. Sekretaris juga sering menjadi penghubung antara pengurus dengan anggota HIMA.
+                      </p>
+                      </div>
+                  </div>
+              </div>
+              <div class="col-md-4">
+                <div class="card mt-2">
+                      <img class="card-img-top mt-2 p-2 rounded" class="btn" data-bs-toggle="tooltip" title="KETUA & WAKIL"  src="img/ketua.jpg" alt="Card image">
+                      <div class="card-body">
+                      <h4 class="card-title text-primary">KETUA & WAKIL</h4>
+                      <h6 class="card-title">Himpunan Mahasiswa Informatika</h6>
+                      <p class="card-text">Ketua dan Wakil Ketua HIMA Informatika adalah 
+                        pemimpin tertinggi di Himpunan Mahasiswa Informatika. Mereka bertanggung
+                         jawab atas jalannya organisasi, mewakili mahasiswa Informatika, dan menjadi 
+                         penghubung antara mahasiswa dengan dosen serta pihak lain. Keduanya dipilih 
+                         melalui proses pemilihan yang demokratis dan memiliki tugas untuk mewujudkan 
+                         program kerja HIMA yang telah disusun.</p>
+                      </div>
+                  </div>
+              </div>
+              <div class="col-md-4">
+                <div class="card mt-5">
+                      <img class="card-img-top mt-2 p-2 " class="btn" data-bs-toggle="tooltip" title="BENDAHARA" src="img/bendahara.jpg" alt="Card image">
+                      <div class="card-body">
+                      <h4 class="card-title text-primary">BENDAHARA</h4>
+                      <h6 class="card-title">Himpunan Mahasiswa Informatika</h6>
+                      <p class="card-text">Bendahara HIMA Informatika bertanggung jawab atas seluruh
+                      pengelolaan keuangan organisasi. Tugasnya meliputi membuat anggaran, mengelola
+                      kas, membuat laporan keuangan, serta memastikan semua transaksi keuangan dilakukan
+                      secara transparan dan akuntabel. Singkatnya, bendahara adalah penjaga keuangan HIMA.
+                      </p>
+                      </div>
+                </div>
+              </div>
+            </section>
+
+            <section id="portofolio" class="py-5" style="background-color:aliceblue;">
+                <div class="container-fruid text-center">
+                      <div class="row">
+              <div class="col-md-4">
+                <div class="card mt-5">
+                      <img class="card-img-top mt-2 p-2 rounded" class="btn" data-bs-toggle="tooltip" title="ADKESMA" src="img/Adkesma.jpg" alt="Card image">
+                      <div class="card-body">
+                      <h4 class="card-title text-primary">ADKESMA </h4>
+                      <h6 class="card-title ">Himpunan Mahasiswa Informatika</h6>
+                      <p class="card-text"> Divisi Advokasi dan Kesejahteraan Mahasiswa (Adkesma) 
+                      dalam HIMA Informatika bertugas memperjuangkan hak dan kepentingan mahasiswa, 
+                      serta meningkatkan kesejahteraan mereka. Divisi ini menjadi jembatan antara mahasiswa 
+                      dengan pihak kampus untuk menyampaikan aspirasi dan mencari solusi atas permasalahan yang dihadapi.
+                      </p>
+                      </div>
+                  </div>
+              </div>
+              <div class="col-md-4">
+                <div class="card mt-2">
+                      <img class="card-img-top mt-2 p-2 rounded" class="btn" data-bs-toggle="tooltip" title="HRD" src="img/HRD.jpg" alt="Card image">
+                      <div class="card-body">
+                      <h4 class="card-title text-primary">HRD</h4>
+                      <h6 class="card-title">Himpunan Mahasiswa Informatika</h6>
+                      <p class="card-text">Divisi HRD (Human Resource Development) dalam HIMA Informatika bertugas mengelola 
+                      sumber daya manusia di dalam organisasi. Tugasnya meliputi rekrutmen anggota baru, 
+                      pengembangan kapasitas anggota, evaluasi kinerja, dan membangun tim yang solid. HRD 
+                      memastikan potensi anggota HIMA dapat termaksimalkan.</p>
+                      </div>
+                  </div>
+              </div>
+              <div class="col-md-4">
+                <div class="card mt-5">
+                      <img class="card-img-top mt-2 p-2 " class="btn" data-bs-toggle="tooltip" title="INFOMED" src="img/infomed.jpg" alt="Card image">
+                      <div class="card-body">
+                      <h4 class="card-title text-primary">INFOMED</h4>
+                      <h6 class="card-title ">Himpunan Mahasiswa Informatika</h6>
+                      <p class="card-text">Divisi Informasi dan Media (Infomed) dalam HIMA Informatika
+                      bertugas mengelola dan menyebarkan informasi terkait kegiatan organisasi.
+                      Divisi ini bertanggung jawab atas pembuatan konten, pengelolaan media sosial, 
+                      serta menjadi penghubung antara HIMA dengan mahasiswa melalui berbagai saluran komunikasi. 
+                      Singkatnya, Infokom adalah wajah publik dari HIMA.</p>
+                      </div>
+                </div>
+              </div>
+          </section>
+
+          <section id="portofolio" class="py-5" style="background-color:aliceblue;">
+            <div class="container-fruid text-center">
+                  <div class="row">
+          <div class="col-md-4">
+            <div class="card mt-5">
+                  <img class="card-img-top mt-2 p-2 rounded" class="btn" data-bs-toggle="tooltip" title="EKSTERNAL" src="img/eksternal.jpg" alt="Card image">
+                  <div class="card-body">
+                  <h4 class="card-title text-primary">EKSTERNAL</h4>
+                  <h6 class="card-title">Himpunan Mahasiswa Informatika</h6>
+                  <p class="card-text"> Divisi Eksternal dalam HIMA Informatika bertugas menjalin hubungan 
+                  dengan organisasi atau lembaga di luar kampus. Tugasnya meliputi kerja sama dengan HIMA lain, 
+                  perusahaan, atau komunitas terkait teknologi informasi. Divisi ini berperan penting dalam 
+                  memperluas jaringan dan meningkatkan reputasi HIMA.
+                  </p>
+                  </div>
+              </div>
+          </div>
+          <div class="col-md-4">
+            <div class="card mt-2">
+                  <img class="card-img-top mt-2 p-2 rounded" class="btn" data-bs-toggle="tooltip" title="INTERNAL" src="img/internal.jpg" alt="Card image">
+                  <div class="card-body">
+                  <h4 class="card-title text-primary">INTERNAL</h4>
+                  <h6 class="card-title">Himpunan Mahasiswa Informatika</h6>
+                  <p class="card-text">Divisi Internal dalam HIMA Informatika bertugas mengelola kegiatan di 
+                  dalam organisasi. Tugasnya meliputi koordinasi antar divisi, pengembangan kapasitas anggota, 
+                  serta menjaga kekompakan dan soliditas internal. Divisi ini berperan penting dalam 
+                  memastikan kelancaran operasional HIMA.</p>
+                  </div>
+              </div>
+          </div>
+          <div class="col-md-4">
+            <div class="card mt-5">
+                  <img class="card-img-top mt-2 p-2 " class="btn" data-bs-toggle="tooltip" title="ENTREPENEUR" src="img/entre.jpg" alt="Card image">
+                  <div class="card-body">
+                  <h4 class="card-title text-primary">ENTREPENEUR</h4>
+                  <h6 class="card-title">HIMPUNAN Mahasiswa Informatika</h6>
+                  <p class="card-text">Divisi Entrepreneur dalam HIMA Informatika berfokus pada pengembangan jiwa 
+                  kewirausahaan mahasiswa. Divisi ini menyelenggarakan berbagai kegiatan seperti pelatihan, 
+                  kompetisi bisnis, dan inkubasi startup untuk mendorong mahasiswa agar berani berinovasi dan 
+                  menciptakan bisnis berbasis teknologi. 
+                  </p>
+                  </div>
+            </div>
+          </div>
+      </section>
+
+      <section id="contact" class="py-5">
+        <div class="container-fruid text-center text-light">
+          <div class="row ">
+            <div class=" p-2 bg-light text-dark rounded">
+              <h4>KONTAK</h4>
+              <div class="text-center">
+              <a href="HMIF@gmail.com"><i class="fa-solid fa-envelope " style="color: #000000 ;  "></i>  EMAIL INFORMATIKA</a>
+              <br>
+              <a href="tel:+62 851 6000 1122"><i class="fa-solid fa-phone " style="color: #000000 ;  "></i>  TELEPON INFORMATIKA</a>
+              <br>
+                <a href="https://www.instagram.com/hmif_unand?igsh=MTU5a3RhZGc2djAydQ=="><i class="fa-brands fa-square-instagram" style="color: #000000 ; "></i> INSTAGRAM INFORMATIKA</a>
+              <br>
+              <br>
+              <a href="#" class="btn btn-secondary">swipe up</a>
+              <br><br>
+              <div class="map">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1994.6544582827132!2d100.4582916983948!3d-0.9155810000000012!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2fd4b7005565cf59%3A0x132eff90ee6427ac!2sGedung%20Kuliah%20E%20Universitas%20Andalas!5e0!3m2!1sid!2sid!4v1734065279661!5m2!1sid!2sid" width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                  </div>
+            </div>
+          </div>
+      </div>
+  </div>
+</section>
+
+<footer class="bg-light text-dark text-center ">
+  <p>© 2024_HMIF. <br> Designed and developed by HMIF</p>
+</footer>
+<div class="marquee">
+  | Himpunan Mahasiswa Informatika | Selamat datang di website Himpunan Mahasiswa Informatika | HMIF | Selamat datang di website Himpunan Mahasiswa Informatika | Himpunan Mahasiswa Informatika | Selamat datang di website Himpunan Mahasiswa Informatika | HMIF | Selamat datang di website Himpunan Mahasiswa Informatika |
+</div>
+
+      <script src="bootstrap/bootstrap.min.css"></script>
+</body>
+</body>
+</html>
